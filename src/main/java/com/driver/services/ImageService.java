@@ -15,7 +15,7 @@ public class ImageService {
     @Autowired
     ImageRepository imageRepository2;
 
-    public Image addImage(Integer blogId, String description, String dimensions){
+    public Image addImage(Integer blogId, String description, String dimensions) {
         //add an image to the blog
 
         Image image = new Image();
@@ -34,7 +34,7 @@ public class ImageService {
         return image;
     }
 
-    public void deleteImage(Integer id){
+    public void deleteImage(Integer id) {
 //        Image image = imageRepository2.findById(id).get();
 //        Blog blog = blogRepository2.findById(image.getBlog().getId()).get();
 //        List<Image> b = blog.getImageList();
@@ -50,10 +50,20 @@ public class ImageService {
         int count = 0;
 
         Image image = imageRepository2.findById(id).get();
+        String availableDimension = image.getDimensions();
+        String[] arr = availableDimension.split("X");
+        String[] brr = screenDimensions.split("X");
 
-        return 0;
+        int screenWidth = Integer.valueOf(brr[0]);
+        int screenHeight = Integer.valueOf(brr[1]);
+        int imageWidth = Integer.valueOf(arr[0]);
+        int imageHeight = Integer.valueOf(arr[1]);
 
-
-
+        while (imageWidth <= screenWidth && imageHeight <= screenHeight) {
+            count++;
+            imageWidth += imageWidth;
+            imageHeight += imageHeight;
+        }
+        return count;
     }
 }
