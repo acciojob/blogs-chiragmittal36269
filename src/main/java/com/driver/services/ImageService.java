@@ -35,15 +35,11 @@ public class ImageService {
     }
 
     public void deleteImage(Integer id){
-
-        Image image = imageRepository2.findById(id).get();
-
-        Blog blog = blogRepository2.findById(image.getBlog().getId()).get();
-
-        List<Image> b = blog.getImageList();
-        b.remove(image);
-
-        blogRepository2.save(blog);
+//        Image image = imageRepository2.findById(id).get();
+//        Blog blog = blogRepository2.findById(image.getBlog().getId()).get();
+//        List<Image> b = blog.getImageList();
+//        b.remove(image);
+//        blogRepository2.save(blog);
 
         imageRepository2.deleteById(id);
     }
