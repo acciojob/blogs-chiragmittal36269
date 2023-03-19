@@ -29,9 +29,9 @@ public class BlogService {
 
         blog.setUser(user);
 
-        List<Blog> b = new ArrayList<>();
-        b.add(blog);
-        user.setBlogList(b);
+//        List<Blog> b = new ArrayList<>();
+//        b.add(blog);
+//        user.setBlogList(b);
 //        userRepository1.save(user);
 
         blogRepository1.save(blog);
@@ -40,18 +40,15 @@ public class BlogService {
 
     public void deleteBlog(int blogId){
         //delete blog and corresponding images
-        try{
-            Blog blog = blogRepository1.findById(blogId).get();
-            blog.setImageList(new ArrayList<>());
 
-            User user = userRepository1.findById(blog.getUser().getId()).get();
-            List<Blog> b = user.getBlogList();
-            b.remove(blog);
+//        Blog blog = blogRepository1.findById(blogId).get();
+//        blog.setImageList(new ArrayList<>());
+//
+//        User user = userRepository1.findById(blog.getUser().getId()).get();
+//        List<Blog> b = user.getBlogList();
+//        b.remove(blog);
 
-            blogRepository1.deleteById(blogId);
-        }
-        catch(Exception e) {
-            System.out.println("exception found");
-        }
+        blogRepository1.deleteById(blogId);
+
     }
 }
