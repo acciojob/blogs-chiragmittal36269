@@ -17,8 +17,6 @@ public class Image {
     @JoinColumn
     Blog blog;
 
-
-    // constructors
     public Image() {
     }
 
@@ -29,8 +27,6 @@ public class Image {
         this.blog = blog;
     }
 
-
-    // getters and setters
     public int getId() {
         return id;
     }
