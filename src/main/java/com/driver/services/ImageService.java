@@ -55,6 +55,8 @@ public class ImageService {
 
         Image image = imageRepository2.findById(id).get();
 
+        return 0;
+
 
 
     }
