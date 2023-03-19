@@ -28,7 +28,7 @@ public class BlogService {
 
         User user = userRepository1.findById(userId).get();
 
-        blog.setPubDate(new Date());
+//        blog.setPubDate(new Date());
         blog.setUser(user);
 
         List<Blog> b = new ArrayList<>();
@@ -36,8 +36,6 @@ public class BlogService {
         user.setBlogList(b);
 
         userRepository1.save(user);
-
-//        blogRepository1.save(blog);
         return blog;
     }
 
